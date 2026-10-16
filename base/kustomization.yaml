@@ -3,6 +3,14 @@ resources:
 - be-service.yaml
 - fe-deploy.yaml
 - fe-service.yaml
-- cm.yaml
-- secret.yaml
 
+secretGenerator:
+- name: secrets
+  type: Generic
+  files:
+  - password
+
+configMapGenerator:
+- name: settings
+  literals:
+  - colour=red

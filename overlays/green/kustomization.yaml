@@ -5,6 +5,20 @@ resources:
 
 patches:
 - path: be-deploy.yaml
-- path: fe-deploy.yaml
-- path: cm.yaml
-- path: secret.yaml
+
+images:
+- name: public.ecr.aws/qa-wfl/qa-wfl/qakf/sbe
+  newTag: v2
+- name: public.ecr.aws/qa-wfl/qa-wfl/qakf/sfe
+  newTag: v1
+
+secretGenerator:
+- name: secrets
+  type: Generic
+  files:
+  - password
+
+configMapGenerator:
+- name: settings
+  literals:
+  - colour=green

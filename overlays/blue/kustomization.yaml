@@ -1,0 +1,10 @@
+namespace: blue
+
+resources:
+- ../../base
+
+patches:
+- path: be-deploy.yaml
+- path: fe-deploy.yaml
+- path: cm.yaml
+- path: secret.yaml
